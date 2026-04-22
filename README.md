@@ -1,1 +1,7 @@
 # portfolio
+
+micaelajara.github.io/portfolio/Micaela_Jara_CaseStudy_Penske.html
+micaelajara.github.io/portfolio/Micaela_Jara_CaseStudy_PrideCMS.html
+micaelajara.github.io/portfolio/Micaela_Jara_CaseStudy_PaperMag.html
+micaelajara.github.io/portfolio/Micaela_Jara_CaseStudy_GZero.html
+micaelajara.github.io/portfolio/Micaela_Jara_CaseStudy_JJKeller.html
