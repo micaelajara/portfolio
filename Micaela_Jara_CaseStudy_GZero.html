@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — GZero Media | Micaela Jara</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2f0eb;
+    --ink: #0d0d0d;
+    --surface: #ffffff;
+    --accent: #1a4fbd;
+    --accent-light: #e8eefb;
+    --muted: #6b6b6b;
+    --border: #d8d5cf;
+    --red: #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    padding: 64px 80px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: 'GZERO';
+    position: absolute;
+    right: -20px; top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 220px;
+    color: #ffffff06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .header-kicker {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 68px;
+    line-height: 0.95;
+    color: #fff;
+    max-width: 680px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  header h1 span { color: var(--accent); }
+
+  .header-sub {
+    font-size: 15px;
+    color: #888;
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid #222;
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 5px; }
+  .meta-label { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #555; }
+  .meta-value { font-size: 13.5px; color: #ddd; font-weight: 500; }
+
+  /* ─── MAIN ─── */
+  main { max-width: 800px; margin: 0 auto; padding: 72px 40px 100px; }
+
+  section {
+    margin-bottom: 64px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.5s forwards;
+  }
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+  section:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  .section-label {
+    font-size: 9px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; letter-spacing: 0.5px;
+    color: var(--ink); margin-bottom: 18px; line-height: 1.1;
+  }
+
+  p { font-size: 15.5px; color: #3a3a3a; margin-bottom: 16px; line-height: 1.85; }
+  strong { color: var(--ink); }
+
+  /* ─── HIGHLIGHT ─── */
+  .highlight {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px; margin: 24px 0;
+  }
+  .highlight p { margin: 0; font-size: 14.5px; color: var(--accent); font-weight: 500; }
+
+  /* ─── ISSUES GRID ─── */
+  .issues-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px; margin: 24px 0;
+  }
+
+  .issue-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 18px;
+  }
+
+  .issue-top {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+
+  .issue-icon { font-size: 18px; }
+
+  .issue-type {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+  }
+
+  .issue-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .issue-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+  /* ─── STEPS ─── */
+  .steps { display: flex; flex-direction: column; margin-top: 12px; }
+  .step { display: flex; gap: 18px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-line { flex: 1; width: 1px; background: var(--border); margin: 4px 0; min-height: 20px; }
+  .step:last-child .step-line { display: none; }
+  .step-content { padding-bottom: 28px; flex: 1; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; margin-top: 4px; }
+  .step-body { font-size: 14.5px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+  /* ─── IMPACT ─── */
+  .impact-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
+
+  .impact-card {
+    background: var(--ink); border-radius: 12px;
+    padding: 24px 18px; text-align: center;
+  }
+  .impact-icon { font-size: 26px; margin-bottom: 10px; }
+  .impact-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 8px; }
+  .impact-text { font-size: 13px; color: #bbb; line-height: 1.6; }
+
+  /* ─── TAGS ─── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag {
+    font-size: 12px; font-weight: 600;
+    padding: 5px 14px; border-radius: 999px;
+    border: 1px solid var(--border); color: var(--muted); background: var(--surface);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink); padding: 28px 80px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-name { font-family: 'Bebas Neue', sans-serif; color: #fff; font-size: 20px; letter-spacing: 1px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: #666; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    header { padding: 40px 24px; }
+    header h1 { font-size: 44px; }
+    main { padding: 48px 24px 80px; }
+    .issues-grid, .impact-row { grid-template-columns: 1fr; }
+    footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-kicker">Product Case Study</div>
+  <h1>Redesign <span>QA</span> Validation for GZero Media</h1>
+  <p class="header-sub">Ensuring pixel-perfect fidelity between Figma specs and live implementation — catching typography, responsive, and interaction failures before launch.</p>
+  <div class="meta-row">
+    <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">RebelMouse</span></div>
+    <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">GZero Media</span></div>
+    <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">gzeromedia.com</span></div>
+    <div class="meta-item"><span class="meta-label">Focus Area</span><span class="meta-value">Redesign QA · Figma Validation · Responsive · UX</span></div>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-label">01 — Context</div>
+    <h2>A geopolitical media brand undergoing a full redesign</h2>
+    <p>GZero Media is a leading political risk and geopolitical analysis publication. Its redesign represented a significant investment in brand positioning — a new visual identity, new typography system, updated component library, and improved responsive behavior across devices.</p>
+    <p>For a redesign at this scale, the gap between what was designed in Figma and what gets implemented in code is where quality breaks down. My role was to close that gap systematically before launch.</p>
+    <div class="highlight">
+      <p>💡 A redesign is only as good as its implementation. Pixel-perfect QA is what separates a launch that builds brand trust from one that undermines it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">02 — Problem Discovery</div>
+    <h2>Four categories of implementation failures</h2>
+    <p>Through systematic comparison of the live implementation against Figma specs, I identified failures across four distinct areas:</p>
+
+    <div class="issues-grid">
+      <div class="issue-card">
+        <div class="issue-top"><div class="issue-icon">🔤</div><span class="issue-type">Typography</span></div>
+        <div class="issue-title">Font mismatches</div>
+        <p class="issue-desc">Wrong font families, weights, or sizes applied to headings, body text, and UI labels — deviating from the defined type system.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-top"><div class="issue-icon">📐</div><span class="issue-type">Sizing</span></div>
+        <div class="issue-title">Incorrect spacing and dimensions</div>
+        <p class="issue-desc">Elements rendered at wrong sizes, with incorrect padding, margins, or proportions compared to the Figma design specs.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-top"><div class="issue-icon">📱</div><span class="issue-type">Responsive</span></div>
+        <div class="issue-title">Layout failures on mobile and tablet</div>
+        <p class="issue-desc">Components breaking at smaller breakpoints — elements overflowing, stacking incorrectly, or not adapting as specified in the responsive Figma frames.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-top"><div class="issue-icon">🖱️</div><span class="issue-type">Interaction</span></div>
+        <div class="issue-title">Broken buttons and interactive states</div>
+        <p class="issue-desc">CTAs and buttons not functioning correctly — wrong hover states, broken links, or interaction failures that blocked user actions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">03 — Process</div>
+    <h2>Figma-to-live systematic validation</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Reviewed Figma specs in detail before testing</div>
+          <p class="step-body">I studied the redesign specs — typography scales, component states, spacing rules, and responsive frames — to build a clear mental model of expected behavior before touching the live environment.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Side-by-side Figma vs. implementation comparison</div>
+          <p class="step-body">I methodically compared each component and page section against its Figma reference, using DevTools to inspect computed styles and confirm exact values for fonts, sizes, colors, and spacing.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Cross-device responsive validation</div>
+          <p class="step-body">I tested every page template across mobile and tablet breakpoints, comparing against the responsive Figma frames and documenting deviations in layout, component behavior, and visual hierarchy.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Interaction and CTA testing</div>
+          <p class="step-body">I validated all interactive elements — buttons, links, navigation items — checking for correct hover states, click behavior, and link destinations across the redesigned components.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">5</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Documented and prioritized all findings</div>
+          <p class="step-body">Every issue was logged in JIRA with Figma references, screenshots, and severity ratings — giving developers a precise diff between spec and implementation to work from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">04 — Impact</div>
+    <h2>What changed as a result</h2>
+    <div class="impact-row">
+      <div class="impact-card">
+        <div class="impact-icon">✅</div>
+        <div class="impact-label">Spec Fidelity</div>
+        <div class="impact-text">Typography, sizing, and component styles aligned to Figma specs before launch</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📱</div>
+        <div class="impact-label">Responsive Integrity</div>
+        <div class="impact-text">Layout failures resolved across mobile and tablet — the redesign delivered consistently at every breakpoint</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🚀</div>
+        <div class="impact-label">Launch Confidence</div>
+        <div class="impact-text">Bugs caught pre-launch, protecting the brand investment of the redesign from day one</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">05 — Product Thinking</div>
+    <h2>What redesign QA taught me about product quality</h2>
+    <p>A redesign is a product bet. The organization has invested in a new direction, and the launch is the moment that bet pays off — or doesn't. QA at this stage isn't just about finding bugs. It's about protecting the integrity of a strategic decision.</p>
+    <p>Working through GZero's redesign taught me to think in systems: a font mismatch isn't one bug, it's a signal that the typography system wasn't properly translated from design to code. A broken button on mobile isn't isolated — it's a gap in how interactive states were specified or communicated.</p>
+    <div class="highlight">
+      <p>💡 The best redesign QA thinks like a PM: what was the intent of this design decision, and does the implementation honor it?</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">06 — Skills Demonstrated</div>
+    <h2>Competencies applied</h2>
+    <div class="tags">
+      <span class="tag">Figma Spec Validation</span>
+      <span class="tag">Pixel-Perfect QA</span>
+      <span class="tag">Typography Systems</span>
+      <span class="tag">Responsive Testing</span>
+      <span class="tag">Interaction Testing</span>
+      <span class="tag">DevTools Inspection</span>
+      <span class="tag">Bug Prioritization</span>
+      <span class="tag">JIRA Documentation</span>
+      <span class="tag">Design-Dev Collaboration</span>
+      <span class="tag">Systems Thinking</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-name">Micaela Jara</div>
+  <div class="footer-links">
+    <a href="mailto:micaaelajara@gmail.com">micaaelajara@gmail.com</a>
+    <a href="https://linkedin.com/in/micaela-jara">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>

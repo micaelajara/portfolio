@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Penske | Micaela Jara</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1025;
+    --purple: #6b3fa0;
+    --purple-light: #9b6dd1;
+    --purple-pale: #f0e8fa;
+    --accent: #c084fc;
+    --gold: #d4a853;
+    --white: #fdfaff;
+    --gray: #6b6478;
+    --border: #e2d5f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    padding: 60px 80px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #6b3fa055 0%, transparent 70%);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c084fc22 0%, transparent 70%);
+  }
+
+  .header-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    line-height: 1.1;
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: 16px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-sub {
+    font-size: 15px;
+    color: #a89bbf;
+    max-width: 520px;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7b6a96;
+  }
+
+  .meta-value {
+    font-size: 14px;
+    color: #ddd0f5;
+    font-weight: 500;
+  }
+
+  /* ─── MAIN ─── */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 70px 40px 100px;
+  }
+
+  /* ─── SECTION ─── */
+  section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.6s forwards;
+  }
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+  section:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 15.5px;
+    color: #3a3044;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  /* ─── HIGHLIGHT BOX ─── */
+  .highlight {
+    background: var(--purple-pale);
+    border-left: 4px solid var(--purple);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+
+  .highlight p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--purple);
+    font-weight: 500;
+  }
+
+  /* ─── IMPACT CARDS ─── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .impact-card {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .impact-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .impact-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .impact-desc {
+    font-size: 13.5px;
+    color: #c4b8d8;
+    line-height: 1.6;
+  }
+
+  /* ─── PROCESS STEPS ─── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 8px;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    flex: 1;
+    width: 2px;
+    background: var(--border);
+    margin: 4px 0;
+    min-height: 24px;
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-content {
+    padding-bottom: 28px;
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+
+  .step-body {
+    font-size: 14.5px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ─── CODE SNIPPET ─── */
+  .code-block {
+    background: #130f1e;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .code-comment { color: #6b5a8a; }
+  .code-key { color: #c084fc; }
+  .code-val { color: #86efac; }
+  .code-err { color: #f87171; }
+  .code-neutral { color: #a89bbf; }
+
+  /* ─── SKILLS TAGS ─── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .tag {
+    background: var(--purple-pale);
+    color: var(--purple);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    color: #a89bbf;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    header { padding: 40px 24px; }
+    header h1 { font-size: 32px; }
+    main { padding: 48px 24px 80px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    footer { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Product Case Study</div>
+  <h1>Fixing a <em>Critical</em> Reservation Failure on Penske's Rental Platform</h1>
+  <p class="header-sub">How a broken API endpoint was discovered through network analysis — and why it mattered for the business.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label">Company</span>
+      <span class="meta-value">RebelMouse</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Client</span>
+      <span class="meta-value">Penske Truck Leasing</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Platform</span>
+      <span class="meta-value">Commercial & Personal Rental Sites</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-value">QA Engineer / Product Collaborator</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Focus Area</span>
+      <span class="meta-value">UX Flows · API Integration · Bug Discovery</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CONTEXT -->
+  <section>
+    <div class="section-label">01 — Context</div>
+    <h2>The product and what was at stake</h2>
+    <p>Penske operates two main customer-facing rental platforms: one for personal truck rentals and one for commercial fleet rentals. These sites are the primary conversion channel — customers go there to browse availability, configure their rental, and complete a booking.</p>
+    <p>A broken reservation flow doesn't just create a poor user experience. It directly costs the business customers who are ready to pay.</p>
+    <div class="highlight">
+      <p>💡 Reservation completion is the most critical user journey on any rental platform. Every drop-off in that funnel is measurable lost revenue.</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="section-label">02 — Problem Discovery</div>
+    <h2>Users couldn't complete the reservation form</h2>
+    <p>During exploratory testing of the reservation flow, I identified that users were unable to submit the final step of the booking form. The process would stall silently — no confirmation, no error message, just a broken state that forced users to abandon.</p>
+    <p>Rather than assuming it was a frontend issue, I opened the browser's Network tab to inspect what was happening at the infrastructure level.</p>
+
+    <div class="code-block">
+      <div><span class="code-comment">// Network tab inspection — reservation submit</span></div>
+      <div>&nbsp;</div>
+      <div><span class="code-key">Request:</span> <span class="code-val">POST /api/reservations/create</span></div>
+      <div><span class="code-key">Status:</span>  <span class="code-err">500 Internal Server Error</span></div>
+      <div>&nbsp;</div>
+      <div><span class="code-key">Response body:</span></div>
+      <div><span class="code-neutral">{</span></div>
+      <div>&nbsp;&nbsp;<span class="code-key">"error":</span> <span class="code-err">"Integration failure — endpoint misconfiguration"</span><span class="code-neutral">,</span></div>
+      <div>&nbsp;&nbsp;<span class="code-key">"data":</span> <span class="code-neutral">null</span></div>
+      <div><span class="code-neutral">}</span></div>
+      <div>&nbsp;</div>
+      <div><span class="code-comment">// Root cause: API endpoint incorrectly integrated,</span></div>
+      <div><span class="code-comment">// returning error response instead of processing reservation</span></div>
+    </div>
+
+    <p>The endpoint responsible for processing reservations was returning a server error on every submission attempt. The frontend had no fallback — it simply froze, giving users no feedback and no path forward.</p>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="section-label">03 — Process</div>
+    <h2>From discovery to resolution</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Exploratory testing of the reservation flow</div>
+          <p class="step-body">I tested the end-to-end booking journey on both the commercial and personal rental sites, simulating real user behavior across different configurations and form inputs.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Network tab analysis to identify root cause</div>
+          <p class="step-body">Using browser DevTools, I inspected the network requests fired during form submission. The API call to the reservation endpoint was returning a 500 error, confirming the issue was on the backend integration layer — not the UI.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Validated with Postman to isolate the endpoint</div>
+          <p class="step-body">I reproduced the error directly in Postman, confirming the endpoint was misconfigured independently of the frontend. This gave the engineering team a clear, reproducible test case to work from.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Documented and reported to dev team</div>
+          <p class="step-body">I filed a detailed bug report in JIRA, including the endpoint path, response payload, reproduction steps, and severity assessment. The clear documentation allowed the team to prioritize and resolve the issue efficiently.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Fix verified and regression tested</div>
+          <p class="step-body">After the engineering team corrected the API integration, I ran a full regression pass on the reservation flow across both platforms to confirm the fix and ensure no regressions were introduced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section>
+    <div class="section-label">04 — Impact</div>
+    <h2>What changed as a result</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">🔁</div>
+        <div class="impact-title">Flow Restored</div>
+        <div class="impact-desc">End-to-end reservation completion re-enabled on both commercial and personal rental platforms</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📋</div>
+        <div class="impact-title">Engineering Clarity</div>
+        <div class="impact-desc">Detailed report gave the dev team an actionable, reproducible case — accelerating resolution time</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🛡️</div>
+        <div class="impact-title">Business Protection</div>
+        <div class="impact-desc">Catching a broken reservation flow before it reached production prevented direct revenue loss</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PM LENS -->
+  <section>
+    <div class="section-label">05 — Product Thinking</div>
+    <h2>What this experience taught me about product</h2>
+    <p>From a Product Manager perspective, this bug was not just a technical issue — it was a conversion problem. The reservation flow is the highest-stakes user journey in any rental product. A silent failure at submission means users don't know what went wrong, can't retry, and most likely leave to a competitor.</p>
+    <p>This experience reinforced something I carry into every product context: <strong>the most critical failures are often invisible to users.</strong> Good product quality work means going below the surface — into the network layer, the API responses, the backend logic — to find what's actually breaking the experience.</p>
+    <div class="highlight">
+      <p>🧠 A PM who understands how APIs and backend integrations fail is a PM who can have more honest, grounded conversations with engineering about severity, scope, and tradeoffs.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">06 — Skills Demonstrated</div>
+    <h2>Competencies applied</h2>
+    <div class="tags">
+      <span class="tag">API Testing (Postman)</span>
+      <span class="tag">Network / DevTools Analysis</span>
+      <span class="tag">Root Cause Investigation</span>
+      <span class="tag">Bug Documentation (JIRA)</span>
+      <span class="tag">Cross-functional Collaboration</span>
+      <span class="tag">UX Flow Testing</span>
+      <span class="tag">Regression Testing</span>
+      <span class="tag">Backend Validation</span>
+      <span class="tag">Severity Prioritization</span>
+      <span class="tag">Product Impact Thinking</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-name">Micaela Jara</div>
+  <div class="footer-links">
+    <a href="mailto:micaaelajara@gmail.com">micaaelajara@gmail.com</a>
+    <a href="https://linkedin.com/in/micaela-jara">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>

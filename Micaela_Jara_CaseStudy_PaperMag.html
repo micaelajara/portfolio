@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Paper Magazine | Micaela Jara</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4f0;
+    --ink: #111111;
+    --surface: #ffffff;
+    --accent: #111111;
+    --red: #e63022;
+    --muted: #777;
+    --border: #e0dbd4;
+    --pale: #ede9e3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    padding: 64px 80px 56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-kicker {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 24px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.0;
+    color: #fff;
+    max-width: 700px;
+    margin-bottom: 20px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.55;
+  }
+
+  .header-sub {
+    font-size: 15px;
+    color: #999;
+    max-width: 500px;
+    line-height: 1.75;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 0;
+    margin-top: 44px;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 28px;
+    flex-wrap: wrap;
+    column-gap: 48px;
+    row-gap: 20px;
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 5px; }
+
+  .meta-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .meta-value {
+    font-size: 13.5px;
+    color: #ddd;
+    font-weight: 500;
+  }
+
+  /* ─── MAIN ─── */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  section {
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s forwards;
+  }
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+  section:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 15.5px;
+    color: #444;
+    margin-bottom: 16px;
+    line-height: 1.85;
+  }
+
+  strong { color: var(--ink); }
+
+  /* ─── HIGHLIGHT ─── */
+  .highlight {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+
+  .highlight p {
+    margin: 0;
+    font-size: 15px;
+    color: #ccc;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* ─── DEVICE GRID ─── */
+  .device-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  .device-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+
+  .device-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .device-icon {
+    font-size: 22px;
+  }
+
+  .device-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .device-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .device-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ─── STEPS ─── */
+  .steps { display: flex; flex-direction: column; margin-top: 12px; }
+  .step { display: flex; gap: 18px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--ink); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step-line { flex: 1; width: 1px; background: var(--border); margin: 4px 0; min-height: 20px; }
+  .step:last-child .step-line { display: none; }
+  .step-content { padding-bottom: 28px; flex: 1; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; margin-top: 4px; }
+  .step-body { font-size: 14.5px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+  /* ─── IMPACT ─── */
+  .impact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .impact-card {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 24px 18px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .impact-icon { font-size: 26px; margin-bottom: 10px; }
+
+  .impact-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .impact-text { font-size: 13px; color: #bbb; line-height: 1.6; }
+
+  /* ─── TAGS ─── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--surface);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    padding: 28px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .footer-links { display: flex; gap: 24px; }
+
+  .footer-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  @media (max-width: 640px) {
+    header h1 { font-size: 36px; }
+    .header-inner { padding: 40px 24px; }
+    main { padding: 48px 24px 80px; }
+    .device-grid, .impact-row { grid-template-columns: 1fr; }
+    footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-kicker">Product Case Study</div>
+    <h1>Responsive UX Audit for <em>Paper</em> Magazine</h1>
+    <p class="header-sub">Identifying and fixing CSS-level breakpoints failures that degraded the reading experience on mobile and tablet — for one of culture's most iconic digital publications.</p>
+    <div class="meta-row">
+      <div class="meta-item">
+        <span class="meta-label">Company</span>
+        <span class="meta-value">RebelMouse</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Client</span>
+        <span class="meta-value">Paper Magazine</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Platform</span>
+        <span class="meta-value">papermag.com</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Focus Area</span>
+        <span class="meta-value">Responsive Design · UX · CSS Debugging</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CONTEXT -->
+  <section>
+    <div class="section-label">01 — Context</div>
+    <h2>A design-forward publication where visual presentation is the product</h2>
+    <p>Paper Magazine is one of the most visually distinctive media brands in culture. Its digital presence is inseparable from its identity — readers expect the same editorial boldness online as in print. For a publication like Paper, a broken layout isn't just a bug. It's a brand failure.</p>
+    <p>As a RebelMouse client, Paper's site needed to deliver a consistent, polished experience across all screen sizes — from desktop editorial spreads to mobile-first browsing, where the majority of their audience reads.</p>
+    <div class="highlight">
+      <p>"For a design-forward brand, a layout that breaks on mobile isn't a minor bug — it's the product failing its audience at the moment they most need it."</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="section-label">02 — Problem Discovery</div>
+    <h2>CSS failures breaking the experience on mobile and tablet</h2>
+    <p>During responsive UX testing across device breakpoints, I identified a range of layout failures affecting both mobile and tablet viewports. The issues stemmed from CSS-level errors — styles that worked correctly on desktop but broke at smaller screen sizes.</p>
+
+    <div class="device-grid">
+      <div class="device-card">
+        <div class="device-top">
+          <div class="device-icon">📱</div>
+          <span class="device-name">Mobile</span>
+        </div>
+        <div class="device-title">Layout and element failures</div>
+        <p class="device-desc">Elements overflowing their containers, incorrect stacking, text truncation, and components misaligned or hidden at small viewports.</p>
+      </div>
+      <div class="device-card">
+        <div class="device-top">
+          <div class="device-icon">📐</div>
+          <span class="device-name">Tablet</span>
+        </div>
+        <div class="device-title">Intermediate breakpoint gaps</div>
+        <p class="device-desc">Styles designed for desktop or mobile didn't gracefully adapt to tablet widths, leaving visual inconsistencies at mid-range breakpoints.</p>
+      </div>
+    </div>
+
+    <p>The root cause in each case was CSS: missing or incorrect media queries, properties not accounting for smaller viewports, and styles that assumed a fixed desktop width.</p>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="section-label">03 — Process</div>
+    <h2>Systematic cross-device testing and CSS-level diagnosis</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Cross-device UX testing across breakpoints</div>
+          <p class="step-body">I systematically tested the site across mobile and tablet viewports, navigating core user journeys — homepage, article pages, navigation — at each breakpoint to surface visual and functional failures.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Browser DevTools inspection to identify CSS root causes</div>
+          <p class="step-body">Using browser DevTools, I inspected the computed styles on broken elements, identified which CSS rules were causing the failures, and pinpointed the exact properties and media queries at fault.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Documented bugs with visual references and device specs</div>
+          <p class="step-body">Each issue was documented with screenshots, device/viewport details, and the specific CSS property or breakpoint causing the problem — giving developers everything they needed to reproduce and fix efficiently.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Collaborated with dev team on fixes</div>
+          <p class="step-body">I worked alongside developers to validate proposed CSS fixes, retesting at each affected breakpoint to confirm the layout rendered correctly before sign-off.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">5</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Full regression pass across devices</div>
+          <p class="step-body">After fixes were applied, I ran a full regression test across mobile and tablet to confirm all issues were resolved and no new breakages were introduced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section>
+    <div class="section-label">04 — Impact</div>
+    <h2>What changed as a result</h2>
+    <div class="impact-row">
+      <div class="impact-card">
+        <div class="impact-icon">📱</div>
+        <div class="impact-label">Mobile Fixed</div>
+        <div class="impact-text">Layout failures resolved across mobile viewports, restoring a consistent reading experience for Paper's primary audience</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🎨</div>
+        <div class="impact-label">Brand Integrity</div>
+        <div class="impact-text">Visual consistency preserved across devices — Paper's bold editorial aesthetic rendered as intended on every screen</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">⚡</div>
+        <div class="impact-label">Fast Resolution</div>
+        <div class="impact-text">Precise CSS-level documentation accelerated the dev team's turnaround, minimizing time with broken layouts in production</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PM LENS -->
+  <section>
+    <div class="section-label">05 — Product Thinking</div>
+    <h2>What responsive testing taught me about product quality</h2>
+    <p>Responsive design is one of those areas where the gap between "works on my machine" and "works for users" is widest. Developers build on desktops. Users read on phones. Without deliberate cross-device testing, that gap goes undetected until it's live.</p>
+    <p>Working on Paper's responsive QA reinforced something I carry into product thinking: <strong>quality is defined by the worst experience a user can have, not the best.</strong> A homepage that looks stunning on a 27-inch monitor and breaks on an iPhone is a broken product — full stop.</p>
+    <p>Going deeper into CSS also sharpened my ability to have technical conversations with frontend developers — understanding not just that something looks wrong, but why, and what it takes to fix it. That technical fluency makes cross-functional collaboration faster and more precise.</p>
+    <div class="highlight">
+      <p>"A PM who can read a broken layout and speak the language of breakpoints can move faster with engineering — and advocate more precisely for the user."</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">06 — Skills Demonstrated</div>
+    <h2>Competencies applied</h2>
+    <div class="tags">
+      <span class="tag">Responsive UX Testing</span>
+      <span class="tag">Cross-device QA</span>
+      <span class="tag">CSS / DevTools Debugging</span>
+      <span class="tag">Breakpoint Analysis</span>
+      <span class="tag">Visual Bug Documentation</span>
+      <span class="tag">Frontend Collaboration</span>
+      <span class="tag">Regression Testing</span>
+      <span class="tag">UX Consistency</span>
+      <span class="tag">Pixel-Perfect Validation</span>
+      <span class="tag">Product Quality Thinking</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-name">Micaela Jara</div>
+  <div class="footer-links">
+    <a href="mailto:micaaelajara@gmail.com">micaaelajara@gmail.com</a>
+    <a href="https://linkedin.com/in/micaela-jara">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
